@@ -4,18 +4,16 @@ import countriesRouter from "./router/countries.js";
 import countriesAPIRouter from "./router/countriesAPI.js";
 
 
-
 const app = Express()
 
 app.use(Express.static(publicFolder));
-
 app.use(Express.json())
 
 
-
-app.use("/api/countries",  countriesAPIRouter);
-
-app.use("/countries",  countriesRouter);
+//Router for API 
+app.use("/api/countries", countriesAPIRouter);
+// Router for html web => TODO 
+app.use("/countries", countriesRouter);
 
 
 app.post('/upload-profile-picture', uploader.single('profile_pic'), (req, res, err) => {
@@ -23,7 +21,6 @@ app.post('/upload-profile-picture', uploader.single('profile_pic'), (req, res, e
     if (fileValidationError) {
         return res.status(500).send(fileValidationError);
     }
-
 
     if (!file) {
         return res.status(400).send('Please upload a file');

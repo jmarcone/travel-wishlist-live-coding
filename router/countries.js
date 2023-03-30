@@ -44,8 +44,8 @@ countriesRouter
         (req, res) => {
             const { code } = req.params;
             flagAsVisited(code).then(
-                country => 
-                res.send(`
+                country =>
+                    res.send(`
                     <h1>${country.name}</>
                     <h2>Alpha 2: ${country.alpha2code}</h2>
                     <h2>Alpha 3: ${country.alpha3code}</h2>

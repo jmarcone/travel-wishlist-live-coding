@@ -1,7 +1,7 @@
 import pool from "../db/pg.js";
 
 const countryExist = (req, res, next) => {
-    const { params: {code} } = req;
+    const { params: { code } } = req;
 
     const query = "SELECT * FROM countries WHERE alpha2code = $1 OR alpha3code = $1 LIMIT 1";
 
